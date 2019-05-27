@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600|Noto+Serif:400,400i|Roboto:300,400&display=swap&subset=cyrillic" rel="stylesheet">
+    <title>TravelService</title>
+</head>
+<body>
+    <div class="background">
+        <div class="header">
+            <div class="container">
+                <div class="top">
+                    <h1>Travel Service</h1>
+                    <p>Сервис по поиску туров предлагает вам множетсво стран, в которые вы может с удовольствие отправиться. Вы должны указать сервису в какую страну вы хотите отправиться, ваши предпочтения в пункте "Дополнительно" и примерный ваш бюджет, который расчитываете потратить на тур. Остальное за вас сделает на серви по подбуру туров. Он найдёт для вас наиболее подходщий отель в выбранной стране, а также предложит вам достоприменчательности, которые вы может посетить во время тура.</p>
+                    <div class="buttonRebot" onclick="reboot()">Reboot</div>
+                    <div class="buttonStart" onclick="request(this)" name = "anchor">Search</div>
+                </div>
+            </div>
+            
+            <section class="content">
+                <div class="container">
+                    <div class="forms">
+
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 d-flex p-0 flex-column">
+                                <div class="formInput">
+                                    <h3><i class="fas fa-plane-departure"></i>Страна</h3>
+                                    <div class="select">
+                                        <a href="javascript:void(0);" class="slct" id = "countryName">Выберите страну посещения</a>
+                                    </div>
+                                        
+                                </div>
+                                <div class="dropBlock">
+                                    <ul class="drop">
+                                        <li>Россия</li>
+                                        <li>США</li>
+                                        <li>Великбритания</li>
+                                        <li>Тайланд</li>
+                                        <li>Кипр</li>
+                                        <li>Греция (Крит)</li>
+                                    </ul>
+                                    <input type="hidden" id="select" />
+                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 d-flex p-0 flex-column">
+                                <div class="formInput">
+                                    <h3><i class="fas fa-ruble-sign"></i>Стоимость</h3>
+                                    <input class="form-control" name="price" id="price" disabled>
+                                </div>
+                                <div class="dropBlock costBlock">
+                                    <div id="slider-range"></div>
+                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 d-flex p-0 flex-column">
+                                <div class="formInput operations">
+                                    <h3><i class="fas fa-calendar-day"></i>Кол-во дней</h3>
+                                    <div class="days">
+                                        <div class="plusBlock">
+                                            <span>от</span>
+                                            <div class="plus" onclick="plus(this)"><i class="fas fa-plus-circle"></i></div>
+                                            <p id = "from" >1</p>
+                                            <div class="minus" onclick="minus(this)"><i class="fas fa-minus-circle"></i></div>
+                                        </div>
+                                        <div class="minusBlock">
+                                            <span>до</span>
+                                            <div class="plus" onclick="plus(this)"><i class="fas fa-plus-circle"></i></div>
+                                            <p id = "to" >2</p>
+                                            <div class="minus" onclick="minus(this)"><i class="fas fa-minus-circle"></i></div>
+                                    </div>
+                                        
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6 col-xl-3 d-flex p-0 flex-column">
+                            <div class="tourists">
+                                <div class="formInput" id = "selectList">
+                                        <h3><i class="fas fa-user-friends"></i>Кол-во людей</h3>
+                                        <div class="result" id = "resultOld"><span>1</span> взрослый</div>
+                                        <div class="result" id = "resultYoung"><span></span></div>
+                                </div>
+                                <div class="dropBlock tour">
+                                    <div class="dropList" id = "dropList">
+                                        <div id="old">
+                                            <p>Взрослый</p>
+                                            <div class="button active" onclick="selectCountPeople(this)">1</div>
+                                            <div class="button" onclick="selectCountPeople(this)">2</div>
+                                            <div class="button" onclick="selectCountPeople(this)">3</div>
+                                            <div class="button" onclick="selectCountPeople(this)">4</div>
+                                        </div>
+                                        <div id="young">
+                                            <p>Детский</p>
+                                            <div class="button active" onclick="selectCountPeople(this)">0</div>
+                                            <div class="button" onclick="selectCountPeople(this)">1</div>
+                                            <div class="button" onclick="selectCountPeople(this)">2</div>
+                                            <div class="button" onclick="selectCountPeople(this)">3</div>
+                                            <div class="button" onclick="selectCountPeople(this)">4</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="buttonExtra" id = "buttonExtra">дополнительно</div>
+                <div class="extra">
+                        <div class="button" onclick="checkedExtraInfo(this)" id = "rusPlace">
+                            <div class="turnOn">Включить</div>
+                            <p>Часто посещаемые места русскими</p>
+                            <div class="turnOff">Выключить</div>
+                        </div>
+                        <div class="button" onclick="checkedExtraInfo(this)" id = "personTransport">
+                            <div class="turnOn">Включить</div>
+                            <p>С личным транспортом</p>
+                            <div class="turnOff">Выключить</div>
+                        </div>
+                        <div class="button" onclick="checkedExtraInfo(this)" id = "alhogol">
+                            <div class="turnOn">Включить</div>
+                            <p>Спиртные напитки</p>
+                            <div class="turnOff">Выключить</div>
+                        </div>
+                        
+                </div>
+        </div>
+    </div>
+            
+        </section>
+        <div class="preloader" id = "preloaderHotels" name = "anchor_">
+            <div class="backgroundPreloader"></div>
+            <div class="backgroundtext">Поиск подходящего отеля</div>
+        </div>
+        <div class="resultContent" id = "resultContent" name = "anchor_">
+            <div class="container">
+                <div class="errorBlock" id = "errorBlock" name = "anchor_">
+                </div>
+                <div class="hotel">
+                    <div class="col-12 col-sm-12 col-md-6 p-0"><img src="" alt="" id="imgHotel"></div>
+                    <div class="col-12 col-sm-12 col-md-6 p-0">
+                        <div class="infoHotel" id = "infoHotel">
+                            <h3></h3>
+                            <h4></h4>
+                            <div class = "stars"></div>
+                            <div class = "extraInfo"></div>
+                            <div class="costHotel">
+                                <p id = "costHotel"></p>
+                            </div>
+                            
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="tourDays" id = "tourDaysBlock">
+            <div class="day" id = "daysPlace">
+            </div>
+        </div>
+        <div class="infoTourDays" id = "blockTourDays">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12" >
+                        <h4 name = "landmarksInThisDay_">Список достоприменчательностей, который вы посетите в <span id = "numDay"></span> день</h4>
+                        <div id = "infoTourDays">
+                        </ul>
+                    </div>
+                   
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="upButton hideBtn" id = "upButton" onclick="upBtn()">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

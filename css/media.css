@@ -1,0 +1,140 @@
+@media (max-width: 1199.98px) {
+    /* .content .formInput, .content .tourists{
+        height: 100%;
+    } */
+    .form-control{
+        padding: 0;
+    }
+    .content .days{
+        display: flex;
+        align-items: center;
+    }
+    .content h3{
+        font-size: 1.4rem;
+    }
+    .content .operations{
+        height: 100%;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .content .days{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 767.98px) {
+    
+    .content .slct{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+    }
+    .top h1{
+        font-size: 5rem;
+    }
+    .content .buttonExtra{
+        font-size: 1.3rem;
+    }
+    .extra{
+        margin-bottom: 20px;
+    }
+    
+    .content .formInput .plusBlock, .content .formInput .minusBlock{
+        margin: 5px 0;
+    }
+    .content .forms i{
+        font-size: 1.5rem;
+    }
+    #to, #from{
+        font-weight: 700;
+    }
+    .resultContent .infoHotel .costHotel p{
+        font-size: 1.4rem;
+    }
+    .resultContent .infoHotel h3{
+        font-size: 1.6rem;
+    }
+    .resultContent .hotel .extraInfo{
+        position: relative;
+        bottom: 0;
+    }
+    .resultContent .infoHotel .costHotel{
+        position: relative;
+        margin-top: 20px;
+        text-align: center;
+    }
+    .resultContent .hotel .extraInfo{
+        margin-top: 10px;
+    }
+    .resultContent .infoHotel h3{
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+    .top {
+        margin-top: 20px;
+    }
+    .infoTourDays img{
+        width: 100%;
+    }
+    .resultContent .hotel{
+        flex-direction: column;
+    }
+    .content .drop li {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .content .formInput, .content .tourists{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .content h3{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .content .form-control{
+        text-align: center;
+    }
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) { 
+
+}
+
+@media (min-width: 1199.98px) { 
+    
+}
+
+@media (min-width: 991.98px) { 
+    
+}
+
+@media (min-width: 767.98px) {
+
+}
+
+@media (min-width: 575.98px) { 
+
+}
