@@ -84,6 +84,9 @@
     .content .drop li {
         font-size: 1.1rem;
     }
+    .tourDays .day .line:after{
+        display: none;
+    }
 }
 
 @media (max-width: 575.98px) {
@@ -100,7 +103,9 @@
     .content .form-control{
         text-align: center;
     }
-    
+    .tourDays .day .dayNumber{
+        padding: 5px 15px;
+    }
     
 }
 

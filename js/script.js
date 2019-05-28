@@ -62,34 +62,33 @@ function upBtn(){
     
 }
 function plus(elem){
-    var num = Number(elem.nextElementSibling.innerText);
+    var num = Number(elem.previousElementSibling.innerText);
     var numFrom = document.getElementById("from"); 
     var numTo = document.getElementById("to");
     if (Number(numFrom.innerText) + 1 <= 20 && Number(numTo.innerText) + 1 <= 20){
-        if (Number(numFrom.innerText) + 1 > Number(numTo.innerText) && elem.nextElementSibling === numFrom){
+        if (Number(numFrom.innerText) + 1 > Number(numTo.innerText) && elem.previousElementSibling === numFrom){
             numFrom.innerHTML = Number(numFrom.innerText) + 1;
             numTo.innerHTML = Number(numTo.innerText) + 1;
             
         }else{
-            elem.nextElementSibling.innerHTML = num + 1;
+            elem.previousElementSibling.innerHTML = num + 1;
         }
          
     }
    
 }
 function minus(elem){
-    var num = Number(elem.previousElementSibling.innerText);
+    var num = Number(elem.nextElementSibling.innerText);
     var numFrom = document.getElementById("from"); 
     var numTo = document.getElementById("to"); 
     if (num > 0 && Number(numTo.innerText) - 1 >= 1){
-        if (Number(numFrom.innerText) > Number(numTo.innerText) - 1 && elem.previousElementSibling === numTo){
+        if (Number(numFrom.innerText) > Number(numTo.innerText) - 1 && elem.nextElementSibling === numTo){
             numFrom.innerHTML = Number(numFrom.innerText) - 1;
             numTo.innerHTML = Number(numTo.innerText) - 1;
             
         }else{
-            elem.previousElementSibling.innerHTML = num - 1;
+            elem.nextElementSibling.innerHTML = num - 1;
         }
-        //elem.previousElementSibling.innerHTML = num - 1;
     }
 }
 
@@ -188,6 +187,13 @@ function errorShow(flag, status){
     return 0;
    
 
+}
+function randomInteger(min, max) {
+    console.log(min);
+    console.log(max);
+    var rand = Math.floor(Math.random() * (max - min) + min);
+    console.log("Rand -" + rand);
+    return rand;
 }
 function reboot(){
     var country = document.getElementById("countryName");
@@ -302,7 +308,7 @@ function request(elem){
             hotelObj.result();
             resultBlock.style.display = "block";
             infoTourDays.style.display = "none";
-            createBtnDays(Number(dayTo - dayFrom));
+            createBtnDays(Number(randomInteger(Number(dayFrom), Number(dayTo))));
             progressBarHotels.style.display = "none";
             scrollDown(elem, 1);
         }, 5000);
@@ -499,7 +505,7 @@ function searchMove(elem){
     resultBlock.innerHTML = " ";
     
     var arrayLandmarks = findLandmarks();
-    var countLandmarks = Math.floor(Math.random() * (arrayLandmarks.length - 2)) + 2;
+    var countLandmarks = randomInteger(2, arrayLandmarks.length);
     for (var i = 0; i < countLandmarks; i++){
         if (arrayLandmarks[i]){
             
@@ -539,7 +545,7 @@ function searchHotel(country, costFrom, costTo, dayFrom, dayTo, pepoleOld, pepol
             
         }
     }
-    var index = Math.floor(Math.random() * listAcceptHotels.length);
+    var index = randomInteger(0, listAcceptHotels.length);
     if (listAcceptHotels.length == 0){
         return -1;
     }

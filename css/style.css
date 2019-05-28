@@ -455,7 +455,46 @@ header .background{
     padding: 20px;
     display: flex;
     align-items: center;
+    overflow: scroll;
 }
+.tourDays .day::-webkit-scrollbar-button {
+    background-image:url('');
+    background-repeat:no-repeat;
+    width:5px;
+    height:0px
+}
+
+.tourDays .day::-webkit-scrollbar-track { 
+    /* Дорожка ползунка */
+background-color:#ffffff;
+}
+
+.tourDays .day::-webkit-scrollbar-thumb {
+/* Ползунок */
+
+-webkit-border-radius: 0px;
+border-radius: 20px;
+background-color:#80b4ff;
+}
+
+.tourDays .day::-webkit-scrollbar-thumb:hover{
+background-color:#4a7d81;
+}
+
+.tourDays .day::-webkit-resizer{
+background-image:url('');
+background-repeat:no-repeat;
+width:4px;
+height:0px
+}
+
+.tourDays .day::-webkit-scrollbar{
+    /* Полоса прокуртки */
+width: 8px;
+}
+
+
+
 .tourDays .day .dayNumber:first-child{
     animation: pulse 2s 2;
 }
@@ -577,7 +616,7 @@ header .background{
     height: 40px;
 }
 .preloader {
-    background: #58a753;
+    background: #72af6e;
     z-index: 0;
     display: none;
 }
@@ -626,3 +665,7 @@ header .background{
 .upButton.hideBtn{
     right: -100%;
 }
+
+
+
+
